@@ -11,7 +11,7 @@ pipeline {
 
         stage('Clone Repo') {
             steps {
-                git branch: 'main', url: 'https://github.com/79682SUYASH/EKSCLuster.git'
+                git branch: 'main', url: 'https://github.com/79682SUYASH/EKSTerraform.git'
             }
         }
 
