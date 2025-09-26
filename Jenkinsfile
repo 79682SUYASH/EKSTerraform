@@ -27,6 +27,11 @@ pipeline {
                 sh 'terraform apply --auto-approve'
                 }
             }
+        stage('terraform destroy'){
+            steps{
+                withAWS(credentials: 'aws-creds', region: 'us-east-1') {
+                sh 'terraform destroy --auto-approve'
+            }
         }
     }
 }
