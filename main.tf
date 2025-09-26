@@ -2,7 +2,7 @@
 # Provider Configuration
 #############################################
 provider "aws" {
-  region = "ap-east-1" # Using Mumbai region
+  region = "us-east-1" # Using Mumbai region
 }
 
 #############################################
