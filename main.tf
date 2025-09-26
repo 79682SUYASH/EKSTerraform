@@ -2,7 +2,7 @@
 # Provider Configuration
 #############################################
 provider "aws" {
-  region = "us-east-1" # Using Mumbai region
+  region = "us-east-1" # Changed to US East (N. Virginia)
 }
 
 #############################################
@@ -57,7 +57,6 @@ data "aws_subnets" "default_subnets" {
 resource "aws_eks_cluster" "mycluster" {
   name     = "mycluster"
   role_arn = aws_iam_role.cluster_role.arn
-  # version = "1.31"   # Optional: specify EKS version
 
   vpc_config {
     subnet_ids = data.aws_subnets.default_subnets.ids
@@ -117,7 +116,6 @@ resource "aws_eks_node_group" "node_group" {
     min_size     = 1
   }
 
-  # Ensure IAM Role permissions exist before node group creation
   depends_on = [
     aws_iam_role_policy_attachment.nodegroup_AmazonEKSWorkerNodePolicy,
     aws_iam_role_policy_attachment.nodegroup_AmazonEKS_CNI_Policy,
